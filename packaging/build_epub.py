@@ -122,9 +122,8 @@ def zip_epub():
                     continue
                 info = zipfile.ZipInfo(rel, date_time=epoch)
                 info.compress_type = zipfile.ZIP_DEFLATED
-                info.compress_level = 9
                 with open(full, "rb") as f:
-                    z.writestr(info, f.read())
+                    z.writestr(info, f.read(), compresslevel=9)
     return os.path.getsize(OUT)
 
 
