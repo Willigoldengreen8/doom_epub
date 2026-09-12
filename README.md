@@ -6,7 +6,10 @@
 
 **A real ebook that runs real DOOM.**
 
-Prepared by **Artem Kulyk**. `doom.epub` is a single, standards-valid EPUB 3 file. Open it in an ordinary ebook
+<img width="1136" height="880" alt="Screenshot 2026-09-12 at 21 30 54" src="https://github.com/user-attachments/assets/44123880-71ac-4972-b593-32c0019b09cc" />
+
+
+`doom.epub` is a single, standards-valid EPUB 3 file. Open it in an ordinary ebook
 reader, turn one page, and you are playing the 1993 shareware episode of DOOM -
 the actual engine, compiled to WebAssembly, rendering into a framebuffer, running
 entirely inside the reader. No network access, no plugins, no external files, no
@@ -62,7 +65,6 @@ builds are byte-for-byte identical. See `.github/workflows/`.
   <img src="docs/screenshots/game-page.png" width="49%" alt="The game page with the keyboard chart and on-screen controls"/>
   <img src="docs/screenshots/gameplay-e1m1.png" width="49%" alt="Playing E1M1"/>
 </p>
-<p><img src="docs/screenshots/cover.png" width="280" alt="The cover"/></p>
 
 ## Controls
 
