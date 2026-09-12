@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>III. The Game</title>
+  <meta name="viewport" content="width=1200, height=800"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+  <div id="gamerunhead"><span class="left">The Book of DOOM</span><span class="right">E1M1 &#8211; E1M9</span></div>
+  <hr id="gamerule"/>
+
+  <div id="gamecol">
+    <div id="screenwrap">
+      <canvas id="doom" width="320" height="200" tabindex="0">Your reader does not support canvas.</canvas>
+      <div id="platesurface" tabindex="0" role="application" aria-label="DOOM game screen: click once to focus the keyboard, tap to fire, drag to turn"></div>
+      <div id="fallback">This interactive page needs an EPUB reader that runs scripted,
+      fixed-layout content (WebAssembly and canvas) &#8212; Apple Books, Thorium or Calibre,
+      among others. You are seeing this message because scripts did not start.</div>
+      <div id="focushint">CLICK OR TAP TO FOCUS</div>
+    </div>
+    <p id="platecaption">Pl.&#160;II &#8212; Knee-Deep in the Dead. Click the plate once, then press &#8220;Enter&#8221; to begin.</p>
+    <div id="status" class="info">Loading DOOM&#8230;</div>
+    <div id="deck">
+      <div class="drow move">
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="160">Strafe L</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="173">Forward</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="175">Back</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="161">Strafe R</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="172">Turn L</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="174">Turn R</button>
+      </div>
+      <div class="drow act">
+        <button type="button" class="ctl fire" tabindex="-1" data-doomkey="163">Fire</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="162">Use</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="9" data-momentary="false">Map</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="13" data-momentary="false">Enter</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="27" data-momentary="false">Esc</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="188" data-momentary="false">Save</button>
+        <button type="button" class="ctl" tabindex="-1" data-doomkey="189" data-momentary="false">Load</button>
+        <button type="button" class="ctl" tabindex="-1" id="bigbtn" title="Give the game the whole page">Full Page</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="side">
+    <h1 class="display">DOOM</h1>
+    <div class="sub">Shareware Episode One &#183; in this book</div>
+    <div id="metrics">
+      <div><span id="fps">--</span> <span class="u">fps</span></div>
+      <div><span id="tickms">--</span> <span class="u">ms/tick</span></div>
+      <div><span id="gametic">--</span> <span class="u">ticks</span></div>
+      <div><span id="audio">audio --</span></div>
+    </div>
+    <div id="state">boot</div>
+
+    <h2>Keyboard</h2>
+    <table class="keys">
+      <tr><td class="k"><kbd>W</kbd> <kbd>S</kbd></td><td>move</td></tr>
+      <tr><td class="k"><kbd>A</kbd> <kbd>D</kbd></td><td>turn</td></tr>
+      <tr><td class="k"><kbd>Q</kbd> <kbd>E</kbd></td><td>strafe</td></tr>
+      <tr><td class="k"><kbd>F</kbd></td><td>fire</td></tr>
+      <tr><td class="k"><kbd>R</kbd></td><td>use</td></tr>
+      <tr><td class="k"><kbd>Enter</kbd></td><td>select</td></tr>
+      <tr><td class="k"><kbd>Esc</kbd></td><td>menu</td></tr>
+      <tr><td class="k"><kbd>Tab</kbd></td><td>automap</td></tr>
+      <tr><td class="k"><kbd>1</kbd>&#8211;<kbd>7</kbd></td><td>weapons</td></tr>
+    </table>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>Click the plate once, then press <kbd>Enter</kbd> to start a new game.</li>
+      <li>In Apple Books the arrow keys and <kbd>Space</kbd> turn the book&#8217;s pages, and
+      macOS turns <kbd>Ctrl</kbd> into dictation &#8212; play with <kbd>A</kbd><kbd>D</kbd>
+      to turn, <kbd>Q</kbd><kbd>E</kbd> to strafe, <kbd>F</kbd> to fire and <kbd>R</kbd> to use.</li>
+      <li>Saved games persist in your reader&#8217;s local storage.</li>
+    </ul>
+
+    <div id="legal">
+      Engine: DoomGeneric (GPL-2.0), compiled to WebAssembly. Music: Chocolate Doom OPL2 player
+      and Nuked OPL3 (GPL-2.0+). Shareware IWAD redistributed under id Software&#8217;s shareware
+      terms. DOOM is a trademark of id Software LLC. See <a href="legal/notice.xhtml">legal/NOTICE.txt</a>.
+    </div>
+  </div>
+
+  <div class="folio">4</div>
+
+  <script src="js/doom.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/boot.js"></script>
+</body>
+</html>

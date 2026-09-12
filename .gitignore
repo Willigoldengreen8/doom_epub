@@ -1,0 +1,19 @@
+# Build outputs
+/build/
+/dist/
+/prototype/build/
+/prototype/test.epub
+
+# Generated engine artifacts (produced by web/engine/build_engine.sh)
+/web/engine/doom.js
+/web/engine/doom.wasm
+
+# Tool state / caches
+.opencode/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local evidence and scratch files
+/artifacts/
+/evidence/

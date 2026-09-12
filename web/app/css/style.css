@@ -1,0 +1,224 @@
+/*
+ * The Book of DOOM — an infernal edition.
+ *
+ * Pre-paginated at 1200x800.  Front and back matter are composed as an
+ * old grimoire: charred parchment, blackletter display type, blood-red
+ * rubrication.  The game page keeps its functional layout, framed as an
+ * illuminated plate.
+ */
+
+@font-face {
+  font-family: 'Fell';
+  src: url('../assets/IMFellEnglish-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fell';
+  src: url('../assets/IMFellEnglish-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+html, body {
+  margin: 0; padding: 0; width: 1200px; height: 800px; overflow: hidden;
+  background-color: #d9c8a4;
+  background-image:
+    radial-gradient(ellipse at 10% 4%, rgba(96, 62, 24, 0.30), rgba(96, 62, 24, 0) 40%),
+    radial-gradient(ellipse at 92% 8%, rgba(96, 62, 24, 0.24), rgba(96, 62, 24, 0) 38%),
+    radial-gradient(ellipse at 50% 112%, rgba(38, 22, 8, 0.36), rgba(38, 22, 8, 0) 60%),
+    radial-gradient(circle at 26% 72%, rgba(78, 48, 20, 0.11), rgba(78, 48, 20, 0) 24%),
+    radial-gradient(circle at 78% 30%, rgba(78, 48, 20, 0.09), rgba(78, 48, 20, 0) 20%),
+    radial-gradient(circle at 62% 86%, rgba(60, 34, 14, 0.10), rgba(60, 34, 14, 0) 18%),
+    radial-gradient(ellipse at 50% 46%, #eee1c2 0%, #dcc9a3 56%, #c0aa7c 100%);
+  color: #2a1a10;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Baskerville, Georgia, "Times New Roman", serif;
+}
+a { color: #8b1a10; text-decoration: none; border-bottom: 1px solid #b08a58; }
+
+.page { position: relative; width: 1200px; height: 800px; box-sizing: border-box; }
+.page .content { position: absolute; left: 150px; right: 150px; top: 96px; bottom: 104px; }
+.page.center .content { text-align: center; }
+.folio {
+  position: absolute; left: 0; right: 0; bottom: 44px; text-align: center;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 18px; letter-spacing: 3px; color: #7a5a35;
+}
+.runhead {
+  position: absolute; left: 150px; right: 150px; top: 54px;
+  font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: #7a5a35;
+}
+.runhead .left { float: left; }
+.runhead .right { float: right; }
+
+.display, .gothic {
+  font-family: 'Fell', 'IM FELL English', 'Iowan Old Style', 'Palatino Linotype', Palatino, Baskerville, Georgia, serif;
+  font-weight: normal;
+}
+h1 { font-size: 54px; letter-spacing: 1px; margin: 0 0 10px 0; color: #5e130b; }
+h2 { font-size: 22px; letter-spacing: 4px; margin: 26px 0 8px 0;
+     font-variant: small-caps; text-transform: uppercase; color: #5e130b; }
+p { font-size: 20px; line-height: 1.6; margin: 0 0 14px 0; text-align: justify; }
+p.nojust { text-align: left; }
+.center, .center p { text-align: center; }
+.small { font-size: 15px; line-height: 1.55; color: #4a3420; }
+.muted { color: #7a5a35; }
+.sc { font-variant: small-caps; letter-spacing: 0.16em; }
+.italic { font-style: italic; }
+.lead { font-size: 23px; line-height: 1.55; }
+.orn { text-align: center; line-height: 0; }
+.rule { border: 0; border-top: 1px solid #b08a58; margin: 18px 0; }
+.rule.dark { border-top-color: #5e130b; border-top-width: 2px; }
+
+/* rubricated drop cap */
+p.opening::first-letter {
+  font-family: 'Fell', 'IM FELL English', 'Iowan Old Style', 'Didot', Baskerville, serif;
+  float: left; font-size: 104px; line-height: 0.78; padding: 8px 12px 0 0; color: #8b1a10;
+}
+
+/* ---------- cover ---------- */
+#coverpage { background: #14100d; background-image: none; }
+#coverplate {
+  position: absolute; left: 366px; top: 44px; width: 467px; height: 700px;
+  background: #0d0b09; border: 2px solid #6e1710;
+  box-shadow: 0 0 0 7px #14100d, 0 0 0 9px #8a6a35, 0 22px 40px rgba(0, 0, 0, 0.7);
+}
+#coverimg { display: block; width: 100%; height: 100%; }
+#covercaption { position: absolute; left: 0; right: 0; bottom: 26px; text-align: center;
+  font-size: 13px; letter-spacing: 5px; text-transform: uppercase; color: #7a5a35; }
+
+/* ---------- half-title / title / part ---------- */
+.halftitle-name { font-size: 88px; line-height: 1; margin: 0; color: #5e130b; }
+.title-home { position: absolute; left: 0; right: 0; top: 150px; }
+.title-name { font-size: 104px; line-height: 1; margin: 0; color: #5e130b; }
+.title-sub { font-size: 28px; letter-spacing: 11px; text-indent: 11px; font-variant: small-caps; margin: 18px 0 0 0; color: #8b1a10; }
+.title-tag { font-size: 30px; font-style: italic; margin: 26px 0 0 0; }
+.title-imprint { position: absolute; left: 0; right: 0; bottom: 88px; }
+.device { margin: 0 auto 10px auto; width: 64px; height: 64px; }
+.part-kicker { font-size: 22px; letter-spacing: 14px; text-indent: 14px; color: #8b1a10; font-variant: small-caps; }
+.part-name { font-size: 104px; line-height: 1; margin: 26px 0 0 0; color: #5e130b; }
+
+/* ---------- frontispiece ---------- */
+.platecaption { font-size: 16px; font-style: italic; color: #4a3420; margin-top: 22px; }
+
+/* ---------- contents ---------- */
+.contents-list { list-style: none; margin: 30px auto 0 auto; padding: 0; width: 800px; }
+.contents-list li { display: flex; flex-wrap: wrap; align-items: baseline;
+  font-size: 21px; line-height: 1.5; margin-bottom: 18px; }
+.contents-list .chap { font-variant: small-caps; letter-spacing: 0.12em; }
+.contents-list .pg { color: #7a5a35; }
+.contents-list .dots { flex: 1; border-bottom: 1px dotted #a8895e; margin: 0 10px 4px 10px; min-width: 40px; }
+.contents-list .sub { flex-basis: 100%; font-size: 16px; font-style: italic; color: #7a5a35; margin-left: 42px; }
+
+/* ---------- controls chart ---------- */
+table.chart { border-collapse: collapse; width: 760px; margin: 24px auto 0 auto; }
+table.chart td { border-bottom: 1px solid #c9b48c; padding: 6px 8px; font-size: 19px; vertical-align: baseline; }
+table.chart td.k { width: 300px; font-variant: small-caps; letter-spacing: 0.08em; }
+.ctrlnote { width: 760px; margin: 22px auto 0 auto; }
+
+/* ---------- colophon ---------- */
+.colophon { width: 760px; margin: 0 auto; }
+.colophon p { font-size: 19px; }
+
+/* ---------- legal pages (generated by the packaging script) ---------- */
+body.legal { background-color: #d9c8a4; background-image: radial-gradient(ellipse at 50% 112%, rgba(38,22,8,0.30), rgba(38,22,8,0) 60%), radial-gradient(ellipse at 50% 46%, #eee1c2 0%, #dcc9a3 56%, #c0aa7c 100%); color: #2a1a10; font-family: "Iowan Old Style", Palatino, Georgia, serif;
+             font-size: 16px; line-height: 1.6; margin: 0; padding: 48px 64px; }
+body.legal h1 { color: #5e130b; font-size: 28px; letter-spacing: 2px; }
+body.legal pre { white-space: pre-wrap; word-wrap: break-word; font-family: inherit; }
+
+/* =====================================================================
+ * game page
+ * ===================================================================== */
+
+#gamecol { position: absolute; left: 60px; top: 78px; width: 800px; }
+#screenwrap {
+  position: relative; width: 800px; height: 500px; background: #0c0906;
+  border: 2px solid #3a2414; box-shadow: 0 0 0 6px #dfd0ae, 0 0 0 8px #8a6a35, 0 0 0 9px #6e1710;
+  margin-bottom: 24px;
+}
+#doom {
+  display: block; width: 800px; height: 500px; background: #000;
+  outline: none; cursor: crosshair;
+  image-rendering: pixelated; image-rendering: crisp-edges; image-rendering: -webkit-optimize-contrast;
+}
+#doom:focus { box-shadow: 0 0 0 2px #8b1a10 inset; }
+#platesurface {
+  position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+  margin: 0; padding: 0; border: 0; background: transparent;
+  cursor: crosshair; -webkit-user-select: none; user-select: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+#platesurface:focus { outline: none; box-shadow: 0 0 0 2px #8b1a10 inset; }
+#fallback {
+  position: absolute; left: 60px; top: 150px; width: 660px;
+  background: #f3e8cd; border: 2px solid #6e1710; padding: 22px 26px;
+  font-size: 19px; line-height: 1.55; color: #4a3420;
+}
+#focushint {
+  position: absolute; left: 0; right: 0; top: 224px; text-align: center;
+  font-variant: small-caps; letter-spacing: 6px;
+  font-size: 21px; color: #f3e8cd; text-shadow: 0 2px 6px #000;
+  pointer-events: none;
+}
+#gamerule { position: absolute; left: 60px; top: 62px; width: 800px; border: 0; border-top: 2px solid #5e130b; }
+#gamerunhead { position: absolute; left: 60px; top: 34px; width: 800px;
+  font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: #7a5a35; }
+#gamerunhead .right { float: right; }
+#platecaption { width: 800px; text-align: center; font-size: 16px; font-style: italic; color: #4a3420; margin: 0 0 14px 0; }
+#status {
+  height: 28px; line-height: 28px; font-size: 17px; text-align: center;
+  font-style: italic; color: #4a3420; margin-bottom: 10px;
+}
+#status.info { color: #7a5a35; }
+#status.ok { color: #3f5a28; }
+#status.err { color: #8c1a10; }
+
+#deck { width: 800px; }
+.drow { white-space: nowrap; margin-bottom: 8px; text-align: center; }
+button.ctl {
+  height: 48px; margin: 0 4px; padding: 0 11px;
+  background: #efe3c6; color: #3a2414; border: 1px solid #8a6a35;
+  box-shadow: 0 2px 0 #c9b48c;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 14px; font-variant: small-caps; letter-spacing: 0.1em; cursor: pointer;
+  -webkit-user-select: none; user-select: none; vertical-align: top;
+}
+button.ctl:active { background: #e0d0a8; color: #8b1a10; box-shadow: none; }
+button.fire { color: #6e1710; border-color: #6e1710; font-size: 16px; padding: 0 18px; }
+#side {
+  position: absolute; left: 920px; top: 78px; width: 226px; height: 676px;
+  box-sizing: border-box; padding: 0 0 0 26px; border-left: 1px solid #c9b48c;
+}
+#side h1 { font-size: 40px; margin: 0; color: #5e130b; }
+#side .sub { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #7a5a35; margin: 8px 0 14px 0; }
+#metrics { font-size: 14px; line-height: 1.7; color: #3f5a28; font-variant: small-caps; letter-spacing: 0.06em; }
+#metrics .u { color: #7a5a35; }
+#state { font-size: 14px; font-style: italic; color: #4a3420; margin: 6px 0 4px 0; }
+#side h2 { font-size: 13px; letter-spacing: 3px; margin: 14px 0 5px 0; }
+#side table.keys { font-size: 13px; border-collapse: collapse; width: 100%; }
+#side table.keys td { padding: 2px; border-bottom: 1px solid #d8c6a2; vertical-align: baseline; }
+#side table.keys td.k { width: 92px; white-space: nowrap; color: #3a2414; }
+#side ul { margin: 6px 0; padding-left: 18px; }
+#side li { font-size: 12.5px; color: #4a3420; line-height: 1.45; margin-bottom: 3px; }
+#legal { margin-top: 14px; border-top: 1px solid #c9b48c; padding-top: 8px;
+  font-size: 10.5px; color: #7a5a35; line-height: 1.45; }
+#legal a { color: #8b1a10; border-bottom: 0; }
+
+kbd {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 0.92em; font-variant: small-caps; letter-spacing: 0.06em;
+  border: 1px solid #b08a58; padding: 0 4px; background: #f3e8cd;
+}
+
+/* ---------- theater mode ---------- */
+body.wide #side { display: none; }
+body.wide #gamerunhead, body.wide #gamerule, body.wide #platecaption, body.wide .folio { display: none; }
+body.wide #gamecol { left: 30px; top: 16px; width: 1140px; }
+body.wide #screenwrap { width: 1140px; height: 712px; margin-bottom: 6px; }
+body.wide #doom { width: 1140px; height: 712px; }
+body.wide #status { width: 1140px; margin-bottom: 0; }
+body.wide #deck { position: absolute; left: 0; top: 640px; width: 1140px; opacity: 0.94; }
+body.wide .drow.move { display: none; }
+body.wide #focushint { top: 320px; }
+body.wide button.ctl { background: rgba(239, 227, 198, 0.92); }

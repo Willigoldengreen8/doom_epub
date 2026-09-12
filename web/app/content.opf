@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" xml:lang="en" unique-identifier="bookid">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="bookid">urn:uuid:7b2f0d42-9a13-4c8e-b6a1-0d00d0e00001</dc:identifier>
+    <dc:title>The Book of DOOM</dc:title>
+    <dc:creator>id Software</dc:creator>
+    <dc:contributor>Artem Kulyk</dc:contributor>
+    <dc:publisher>The EPUB Press</dc:publisher>
+    <dc:language>en</dc:language>
+    <dc:description>An old grimoire of an ebook that runs the complete 1993 shareware episode of DOOM, sound and all, inside an ordinary EPUB reader.</dc:description>
+    <dc:subject>Interactive fiction</dc:subject>
+    <dc:subject>DOOM</dc:subject>
+    <meta property="dcterms:modified">2026-09-12T19:00:00Z</meta>
+    <meta property="rendition:layout">pre-paginated</meta>
+    <meta property="rendition:orientation">landscape</meta>
+    <meta property="rendition:spread">none</meta>
+    <meta name="cover" content="cover-image"/>
+  </metadata>
+  <manifest>
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/>
+    <item id="cover-image" href="assets/cover.png" media-type="image/png" properties="cover-image"/>
+    <item id="halftitle" href="halftitle.xhtml" media-type="application/xhtml+xml"/>
+    <item id="frontispiece" href="frontispiece.xhtml" media-type="application/xhtml+xml"/>
+    <item id="titlepage" href="titlepage.xhtml" media-type="application/xhtml+xml" properties="svg"/>
+    <item id="copyright" href="copyright.xhtml" media-type="application/xhtml+xml"/>
+    <item id="contents" href="contents.xhtml" media-type="application/xhtml+xml" properties="svg"/>
+    <item id="about" href="about.xhtml" media-type="application/xhtml+xml" properties="svg"/>
+    <item id="controls" href="controls.xhtml" media-type="application/xhtml+xml"/>
+    <item id="part" href="part.xhtml" media-type="application/xhtml+xml" properties="svg"/>
+    <item id="game" href="game.xhtml" media-type="application/xhtml+xml" properties="scripted"/>
+    <item id="colophon" href="colophon.xhtml" media-type="application/xhtml+xml" properties="svg"/>
+    <item id="style" href="css/style.css" media-type="text/css"/>
+    <item id="boot" href="js/boot.js" media-type="application/javascript"/>
+    <item id="player" href="js/player.js" media-type="application/javascript"/>
+    <item id="engine" href="js/doom.js" media-type="application/javascript"/>
+    <item id="engine-wasm" href="assets/doom.wasm" media-type="application/wasm"/>
+    <item id="iwad" href="assets/doom1.wad" media-type="application/octet-stream"/>
+    <item id="plate1" href="assets/doom.jpg" media-type="image/jpeg"/>
+    <item id="fell" href="assets/IMFellEnglish-Regular.ttf" media-type="font/ttf"/>
+    <item id="fell-italic" href="assets/IMFellEnglish-Italic.ttf" media-type="font/ttf"/>
+    <item id="gpl" href="legal/gpl.xhtml" media-type="application/xhtml+xml"/>
+    <item id="notice" href="legal/notice.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine>
+    <itemref idref="cover"/>
+    <itemref idref="halftitle"/>
+    <itemref idref="frontispiece"/>
+    <itemref idref="titlepage"/>
+    <itemref idref="copyright"/>
+    <itemref idref="contents"/>
+    <itemref idref="about"/>
+    <itemref idref="controls"/>
+    <itemref idref="part"/>
+    <itemref idref="game"/>
+    <itemref idref="colophon"/>
+    <itemref idref="notice" linear="no" properties="rendition:layout-reflowable"/>
+    <itemref idref="gpl" linear="no" properties="rendition:layout-reflowable"/>
+  </spine>
+</package>

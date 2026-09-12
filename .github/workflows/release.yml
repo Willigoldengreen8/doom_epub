@@ -1,0 +1,72 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source and engine submodule
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Emscripten 6.0.9
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: 6.0.9
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install EPUBCheck 5.3.0
+        run: |
+          curl -sSLo /tmp/epubcheck.zip \
+            https://github.com/w3c/epubcheck/releases/download/v5.3.0/epubcheck-5.3.0.zip
+          sudo unzip -q /tmp/epubcheck.zip -d /opt
+          printf '#!/bin/sh\nexec java -jar /opt/epubcheck-5.3.0/epubcheck.jar "$@"\n' \
+            | sudo tee /usr/local/bin/epubcheck >/dev/null
+          sudo chmod +x /usr/local/bin/epubcheck
+          epubcheck --version
+
+      - name: Build (first pass)
+        run: ./build_all.sh
+
+      - name: Keep the first pass
+        run: cp dist/doom.epub /tmp/doom-first.epub
+
+      - name: Build (second pass)
+        run: ./build_all.sh
+
+      - name: Enforce reproducibility
+        run: |
+          first=$(sha256sum /tmp/doom-first.epub | cut -d' ' -f1)
+          second=$(sha256sum dist/doom.epub | cut -d' ' -f1)
+          echo "first pass:  $first"
+          echo "second pass: $second"
+          test "$first" = "$second"
+
+      - name: Write checksum
+        run: sha256sum dist/doom.epub > dist/doom.epub.sha256
+
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            dist/doom.epub dist/doom.epub.sha256 \
+            --title "doom.epub $GITHUB_REF_NAME" \
+            --generate-notes

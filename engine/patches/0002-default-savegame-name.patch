@@ -1,0 +1,19 @@
+diff --git a/doomgeneric/m_menu.c b/doomgeneric/m_menu.c
+index 6df9655..9e85998 100644
+--- a/doomgeneric/m_menu.c
++++ b/doomgeneric/m_menu.c
+@@ -1583,8 +1583,12 @@ boolean M_Responder (event_t* ev)
+ 
+ 	  case KEY_ENTER:
+ 	    saveStringEnter = 0;
+-	    if (savegamestrings[saveSlot][0])
+-		M_DoSave(saveSlot);
++	    /* doom.epub: readers cannot easily type a save description, so give
++	     * unnamed saves a sensible default rather than refusing to save. */
++	    if (!savegamestrings[saveSlot][0])
++		M_StringCopy(savegamestrings[saveSlot], "DOOM EPUB",
++			     SAVESTRINGSIZE);
++	    M_DoSave(saveSlot);
+ 	    break;
+ 
+ 	  default:

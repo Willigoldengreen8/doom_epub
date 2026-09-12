@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Interactive Capability Test</title>
+  <meta name="viewport" content="width=1200, height=800"/>
+  <style>
+    html, body { margin: 0; padding: 0; width: 1200px; height: 800px; background: #0c0c14; color: #d8d8d8; overflow: hidden; font-family: "Menlo", "Courier New", monospace; }
+    #gamewrap { position: absolute; left: 10px; top: 10px; width: 780px; }
+    #display { display: block; width: 780px; height: 520px; background: #000; border: 2px solid #303040; outline: none; cursor: crosshair; }
+    #display:focus { border-color: #e0b000; }
+    #hint { width: 776px; height: 34px; line-height: 34px; margin-top: 6px; padding-left: 4px; font-size: 16px; color: #e0b000; background: #181828; border: 1px solid #303040; white-space: nowrap; overflow: hidden; }
+    #touchpad { position: absolute; left: 10px; top: 620px; width: 780px; height: 170px; }
+    .tbtn { position: absolute; height: 72px; background: #1c1c2c; border: 2px solid #3a3a55; color: #cfcfcf; font-size: 20px; font-family: inherit; text-align: center; line-height: 72px; cursor: pointer; -webkit-user-select: none; user-select: none; }
+    .tbtn:active { background: #3c3c60; color: #fff; }
+    #b-left { left: 0px; width: 130px; }
+    #b-fwd { left: 140px; width: 180px; }
+    #b-back { left: 330px; width: 180px; }
+    #b-right { left: 520px; width: 130px; }
+    #b-fire { left: 660px; width: 116px; color: #ff6040; }
+    #panel { position: absolute; left: 800px; top: 10px; width: 390px; height: 780px; background: #101018; border: 1px solid #303040; padding: 8px; box-sizing: border-box; }
+    #panel h1 { font-size: 17px; margin: 0 0 6px 0; color: #e04030; letter-spacing: 1px; }
+    #fps { font-size: 30px; color: #40e060; margin: 2px 0 2px 0; }
+    #sub { font-size: 13px; color: #90a0b0; margin-bottom: 6px; }
+    table.caps { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 6px; }
+    table.caps td { border-bottom: 1px solid #202030; padding: 2px 2px; vertical-align: top; }
+    table.caps td.k { color: #a0a8c0; width: 168px; }
+    .yes { color: #40e060; }
+    .no { color: #e04040; }
+    .wait { color: #e0b000; }
+    #bench { width: 100%; border-collapse: collapse; font-size: 12px; }
+    #bench td { border-bottom: 1px solid #202030; padding: 2px; }
+    #bench td.r { text-align: right; color: #40e060; }
+    #benchhead { font-size: 13px; color: #e0b000; margin: 4px 0 2px 0; }
+    #inputline { font-size: 12px; color: #90a0b0; margin-top: 4px; }
+    #wasmline { font-size: 12px; color: #90a0b0; margin-top: 4px; word-wrap: break-word; }
+  </style>
+</head>
+<body>
+  <div id="gamewrap">
+    <canvas id="display" width="780" height="520" tabindex="0">Canvas not supported.</canvas>
+    <div id="hint">CLICK OR TAP THE PAGE, THEN USE W A S D / ARROWS / MOUSE / TOUCH</div>
+  </div>
+  <div id="touchpad">
+    <button type="button" tabindex="-1" class="tbtn" id="b-left">TURN L</button>
+    <button type="button" tabindex="-1" class="tbtn" id="b-fwd">FORWARD</button>
+    <button type="button" tabindex="-1" class="tbtn" id="b-back">BACK</button>
+    <button type="button" tabindex="-1" class="tbtn" id="b-right">TURN R</button>
+    <button type="button" tabindex="-1" class="tbtn" id="b-fire">FIRE</button>
+  </div>
+  <div id="panel">
+    <h1>DOOM IN EPUB &#8212; TEST</h1>
+    <div id="fps">-- FPS</div>
+    <div id="sub">framebuffer 320x200 &#183; frame -- ms</div>
+    <table class="caps" id="caps"></table>
+    <div id="benchhead">SUSTAINED FPS BENCHMARK (auto)</div>
+    <table id="bench"></table>
+    <div id="inputline">input: none</div>
+    <div id="wasmline">wasm: checking...</div>
+  </div>
+  <script src="js/game.js"></script>
+</body>
+</html>

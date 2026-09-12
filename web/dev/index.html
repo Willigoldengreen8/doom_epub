@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>doom.epub dev harness</title>
+<style>
+  html, body { margin: 0; padding: 10px; background: #0c0c12; color: #ddd; font-family: Menlo, monospace; }
+  #c { display: block; width: 960px; height: 600px; background: #000; border: 1px solid #333; outline: none; image-rendering: pixelated; image-rendering: crisp-edges; }
+  #wrap { display: flex; gap: 14px; }
+  #side { width: 320px; font-size: 13px; }
+  #status { color: #e0b000; margin: 8px 0; height: 34px; }
+  #status.ok { color: #40e060; } #status.err { color: #e04040; }
+  .row { border-bottom: 1px solid #222; padding: 3px 0; }
+  button { background: #1c1c2c; color: #ccc; border: 1px solid #3a3a55; padding: 6px 10px; font-family: inherit; cursor: pointer; }
+  button:active { background: #3c3c60; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="c" tabindex="0"></canvas>
+  <div id="side">
+    <h3 style="color:#e04030;margin:0 0 8px 0">DOOM IN EPUB - dev</h3>
+    <div id="status">booting...</div>
+    <div class="row">state: <span id="state">-</span></div>
+    <div class="row">fps: <span id="fps">-</span></div>
+    <div class="row">tick ms: <span id="tick">-</span></div>
+    <div class="row">tics: <span id="tics">-</span></div>
+    <div class="row" style="margin-top:8px">FIRE <button data-doomkey="163">Ctrl</button></div>
+    <div class="row">USE <button data-doomkey="162">Space</button></div>
+    <div class="row">ENTER <button data-doomkey="13" data-momentary="false">Enter</button></div>
+    <div class="row">ESC <button data-doomkey="27" data-momentary="false">Esc</button></div>
+  </div>
+</div>
+<script src="../src/player.js"></script>
+<script src="../engine/doom.js"></script>
+<script>
+(function(){
+  var statusEl=document.getElementById('status');
+  var stateEl=document.getElementById('state');
+  var fpsEl=document.getElementById('fps');
+  var tickEl=document.getElementById('tick');
+  var ticsEl=document.getElementById('tics');
+  var m=(/warp=(\d+)-(\d+)/).exec(location.search);
+  var extraArgs=m?['-warp',m[1],m[2]]:[];
+  var p=DoomPlayer.create({
+    canvas:document.getElementById('c'),
+    wasmUrl:'../engine/doom.wasm',
+    wadUrl:'../../wad/doom1.wad',
+    status:function(t,k){statusEl.textContent=t;statusEl.className=k||'';},
+    onState:function(s){stateEl.textContent=s;},
+    onFps:function(f,ms,ticks){fpsEl.textContent=f.toFixed(1);tickEl.textContent=ms.toFixed(2);ticsEl.textContent=ticks;},
+    onPrint:function(t){if(t.indexOf('I_InitGraphics')>=0){statusEl.textContent+=(' | '+t);}},
+    syncStorage:null,
+    argv:extraArgs
+  });
+  p.start();
+  window.__player=p;
+})();
+</script>
+</body>
+</html>
