@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/assets/icon.png" width="112" height="112" alt="doom.epub icon"/>
-</p>
-
 # doom.epub
 
 [![build](https://github.com/artemkulyk/doom_epub/actions/workflows/ci.yml/badge.svg)](https://github.com/artemkulyk/doom_epub/actions/workflows/ci.yml)
